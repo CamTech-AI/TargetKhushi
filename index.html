@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#050716">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Defence Line</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game">
+    <canvas id="stage"></canvas>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- 1. PASSWORD SCREEN (nothing else can be reached until it is passed) -->
+    <section id="lock" class="screen lock">
+      <div class="lock-inner">
+        <svg class="lock-ico" viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="12" y="28" width="40" height="28" rx="6"></rect>
+          <path d="M21 28v-7a11 11 0 0 1 22 0v7" fill="none"></path>
+          <circle cx="32" cy="42" r="3.5"></circle>
+        </svg>
+        <h1 class="lock-title">Password required</h1>
+        <label class="lock-label" for="pw">Enter the password to continue.</label>
+        <div class="pw-row">
+          <input id="pw" class="pw-input" type="password" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Password">
+          <button id="pwToggle" class="pw-toggle" type="button" aria-label="Show password">Show</button>
+        </div>
+        <p id="pwError" class="pw-error" role="alert"></p>
+        <button id="unlockBtn" class="play-btn unlock-btn" type="button">UNLOCK</button>
+      </div>
+    </section>
+
+    <!-- 2. OPENING SCREEN -->
+    <section id="intro" class="screen intro hidden">
+      <div class="intro-inner">
+        <h1 class="intro-title">PROTECT THE LINE OF DEFENCE FROM YOURSELF</h1>
+        <p class="intro-sub">4 threats detected.</p>
+        <button id="playBtn" class="play-btn" type="button">PLAY</button>
+      </div>
+    </section>
+
+    <!-- 3. ENDING SCREEN (the text is filled in by script.js) -->
+    <section id="end" class="screen end hidden" aria-live="assertive">
+      <div class="end-inner">
+        <h2 id="endTitle" class="end-title"></h2>
+        <p id="endSub" class="end-sub"></p>
+        <p class="end-over">GAME OVER</p>
+        <button id="replayBtn" class="play-btn replay-btn" type="button" disabled>REPLAY</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
